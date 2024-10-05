@@ -1,2 +1,3 @@
-# fetch
-i love dogs
+# fetch 🐕
+↪ displaying cute dogs using the dog api | coding challenge for fetch
+↪ i love dogs
