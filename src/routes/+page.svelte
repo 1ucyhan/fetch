@@ -27,11 +27,11 @@
 </svelte:head>
 
 <section>
-	<div class="flex flex-col justify-center items-center pt-[20%]">
+	<div class="flex flex-col justify-center items-center pt-[10%]">
 		<h1 class = "text-6xl font-extrabold text-fetchpurple animate__animated animate__rotateInUpRight"> 
 			<span class = "text-fetchorange animate__animated animate__rotateInUpRight"> Fetch </span> 
 			me a doggy. 🐶 </h1>
-		<p class = "pt-8 text-color-black"> Click on the dropdown below to see some cute doggies... </p>
+		<p class = "pb-10  pt-8 text-color-black"> Click on the dropdown below to see some cute doggies... </p>
 		<!-- Dropdown -->
 		<Dropdown on:select={fetchBreeds} />
 

@@ -59,24 +59,27 @@
         });
   }
   </script>
-  
+
   <!-- Rendering the checkboxes for each breed. -->
   <div class="checkbox-container">
-    {#each Object.keys(alphaBreeds) as letter}
-      <div class="breed-group">
-        <h3>{letter}</h3>
-        {#each alphaBreeds[letter] as breed}
-          <label class="breed-checkbox">
-            <input
-              type="checkbox"
-              value={breed}
-              on:change={(event) => handleCheckboxChange(event, breed)}
-            />
-            {breed}
-          </label>
+    <h1 class="text-2xl font-bold text-gray-800 mb-4"> the big dictionary of doggies. </h1>
+    <div class="checkboxes">
+        {#each Object.keys(alphaBreeds) as letter}
+        <div class="breed-group">
+            <h3 class="text-xl text-fetchpurple"> {letter}</h3>
+            {#each alphaBreeds[letter] as breed}
+            <label class="breed-checkbox">
+                <input
+                type="checkbox"
+                value={breed}
+                on:change={(event) => handleCheckboxChange(event, breed)}
+                />
+                {breed}
+            </label>
+            {/each}
+        </div>
         {/each}
-      </div>
-    {/each}
+    </div>
   </div>
   
   <!-- Rendering the images of just the selected breeds -->
@@ -94,18 +97,31 @@
   <style>
 
     .checkbox-container {
+        padding-top: 5%;
+        padding-bottom: 5%;
+        background-color: #f3f0ec;
+        width: 100vw;
+    }
+
+    .checkboxes {
         display: grid;
-        grid-template-columns: repeat(5, 1fr); /* Three columns */
+        grid-template-columns: repeat(5, 1fr);
         gap: 1rem;
-        max-width: 100%;
+        max-width: 1000px; 
+        margin: 0 auto;
+        padding: 1rem;
+
     }
 
     .breed-group {
         margin-bottom: 1rem;
+        max-width: 30%;
     }
 
     .breed-checkbox {
-        display: block;
+        display: flex; 
+        align-items: center; 
+        gap: 0.3em;
         margin-bottom: 0.5rem;
     }
     
