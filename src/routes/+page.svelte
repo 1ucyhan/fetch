@@ -1,7 +1,10 @@
 <script>
 	import logo from '$lib/images/fetch-logo.svg';
+	import TypingEffect from '../components/TypingEffect.svelte';
 	import Dropdown from '../components/Dropdown.svelte';
 	let doggies = [];
+	
+    const breeds = ["doggy", "Cockapoo", "Corgi", "Poodle", "Bulldog", "Sheepdog", "Newfoundland"];
 
 	// Fetching images.
 	async function fetchImages(breed) {
@@ -39,10 +42,10 @@
 				/>
 			</span>
 			<span class="ml-2">
-				me a doggy.
+				me a <TypingEffect words={breeds} />. 🐶
 			</span>
 		</h1>
-		
+	
 		
 		<p class = "pb-10  pt-8 text-color-black"> Click on the dropdown below to see some cute doggies... </p>
 		<!-- Dropdown -->
