@@ -11,7 +11,8 @@
     let selectedBreeds = [];
     let breedImages = {};
     let alphaBreeds = {};
-  
+    let searchTerm = '';
+
     // Fetch (haha get it) all the dog breeds on mount
     // Make sure this is on Mount
     onMount(async () => {
@@ -21,7 +22,7 @@
       breeds = Object.keys(data.message);
       groupBreedsByLetter();
     });
-  
+
     // Fetch and display images for the selected breeds
     async function fetchBreedImages() {
       breedImages = {};
@@ -34,7 +35,7 @@
         breedImages[breed] = data.message.slice(0, 10); 
       }
     }
-  
+
     // Making sure any changes in checkboxes are reflected.
     function handleCheckboxChange(event, breed) {
       // Selecting multiple breeds of dogs
@@ -46,7 +47,7 @@
       fetchBreedImages(); 
     }
 
-    // Want to oragnize the checkboxes in alphabetical order.
+    // Want to organize the checkboxes in alphabetical order.
     function groupBreedsByLetter() {
         alphaBreeds = {};
         breeds.forEach(breed => {
@@ -54,25 +55,38 @@
             const firstLetter = breed.charAt(0).toUpperCase();
             if (!alphaBreeds[firstLetter]) {
                 alphaBreeds[firstLetter] = [];
-        }
-        alphaBreeds[firstLetter].push(breed);
+            }
+            alphaBreeds[firstLetter].push(breed);
         });
-  }
-  </script>
+    }
 
-  <!-- Rendering the checkboxes for each breed. -->
-  <div class="checkbox-container">
-    <h1 class="text-2xl font-bold text-gray-800 mb-4"> the big dictionary of doggies. </h1>
+    // Filter breeds based on search term
+    $: filteredBreeds = breeds.filter(breed => breed.toLowerCase().includes(searchTerm.toLowerCase()));
+</script>
+
+<!-- Rendering the checkboxes for each breed -->
+<div class="checkbox-container">
+    <h1 class="text-2xl font-bold text-gray-800 mb-4"> The Big Dictionary of Doggies </h1>
+
+    <!-- Search bar for filtering breeds -->
+    <input
+        type="text"
+        bind:value={searchTerm}
+        placeholder="Search for a breed..."
+        class="flex items-center mx-auto center mb-4 p-2 border border-gray-300 rounded-lg w-full max-w-md"
+    />
+
     <div class="checkboxes">
         {#each Object.keys(alphaBreeds) as letter}
         <div class="breed-group">
-            <h3 class="text-xl text-fetchpurple"> {letter}</h3>
-            {#each alphaBreeds[letter] as breed}
+            <h3 class="text-xl text-fetchpurple">{letter}</h3>
+            {#each alphaBreeds[letter].filter(breed => breed.toLowerCase().includes(searchTerm.toLowerCase())) as breed}
             <label class="breed-checkbox">
                 <input
-                type="checkbox"
-                value={breed}
-                on:change={(event) => handleCheckboxChange(event, breed)}
+                    type="checkbox"
+                    value={breed}
+                    on:change={(event) => handleCheckboxChange(event, breed)}
+                    class="mr-2"
                 />
                 {breed}
             </label>
@@ -80,22 +94,22 @@
         </div>
         {/each}
     </div>
-  </div>
-  
-  <!-- Rendering the images of just the selected breeds -->
-  <div>
+</div>
+
+<!-- Rendering the images of just the selected breeds -->
+<div>
     {#each Object.keys(breedImages) as breed}
-      <h2 class = "text-fetchorange">{breed}</h2>
+      <h2 class="text-fetchorange">{breed}</h2>
       <div class="grid grid-cols-3 gap-4 mt-10">
         {#each breedImages[breed] as image}
-          <img src={image} alt={breed} />
+          <img src={image} alt={breed} class="rounded-md border border-gray-300" />
         {/each}
       </div>
     {/each}
-  </div>
-  
-  <style>
+</div>
 
+
+<style>
     .checkbox-container {
         padding-top: 5%;
         padding-bottom: 5%;
@@ -110,7 +124,6 @@
         max-width: 1000px; 
         margin: 0 auto;
         padding: 1rem;
-
     }
 
     .breed-group {
@@ -124,14 +137,13 @@
         gap: 0.3em;
         margin-bottom: 0.5rem;
     }
-    
-	img {
-		width: 80%; 
+
+    img {
+        width: 80%; 
         height: 200px;
-     
-		object-fit: cover; 
-		border-radius: 8px; 
-		border: 2px solid orange;
-	}
-	
+        object-fit: cover; 
+        border-radius: 8px;
+        border: 2px solid orange;
+    }
+
 </style>

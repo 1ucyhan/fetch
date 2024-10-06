@@ -1,4 +1,5 @@
 <script>
+	import logo from '$lib/images/fetch-logo.svg';
 	import Dropdown from '../components/Dropdown.svelte';
 	let doggies = [];
 
@@ -28,9 +29,21 @@
 
 <section>
 	<div class="flex flex-col justify-center items-center pt-[10%]">
-		<h1 class = "text-6xl font-extrabold text-fetchpurple animate__animated animate__rotateInUpRight"> 
-			<span class = "text-fetchorange animate__animated animate__rotateInUpRight"> Fetch </span> 
-			me a doggy. 🐶 </h1>
+		<h1 class="text-6xl text-fetchpurple flex items-center">
+			<span class="text-fetchorange animate__animated animate__fadeIn flex items-center">
+				Fetch
+				<img 
+					src="{logo}" 
+					alt="Fetch Logo" 
+					class="inline-block w-20 h-20 ml-2 align-middle"
+				/>
+			</span>
+			<span class="ml-2">
+				me a doggy.
+			</span>
+		</h1>
+		
+		
 		<p class = "pb-10  pt-8 text-color-black"> Click on the dropdown below to see some cute doggies... </p>
 		<!-- Dropdown -->
 		<Dropdown on:select={fetchBreeds} />
