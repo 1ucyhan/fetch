@@ -1,17 +1,17 @@
 <script>
 	import Dropdown from '../components/Dropdown.svelte';
-	let dogImages = [];
+	let doggies = [];
 
-	// Fetch images when a breed is selected
+	// Fetching images.
 	async function fetchImages(breed) {
 		const res = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
 		const data = await res.json();
-		dogImages = data.message.slice(0, 10); // Display the first 10 images
+		doggies = data.message.slice(0, 10); 
 	}
 
-	// Handle the breed selection
-	function handleBreedSelect(event) {
-		const selectedBreed = event.detail; // The breed selected from the dropdown
+	// Fetching the image / the breed selection
+	function fetchBreeds(event) {
+		const selectedBreed = event.detail;
 		fetchImages(selectedBreed);
 	}
 
@@ -32,25 +32,26 @@
 			<span class = "text-fetchorange animate__animated animate__rotateInUpRight"> Fetch </span> 
 			me a doggy. 🐶 </h1>
 		<p class = "pt-8 text-color-black"> Click on the dropdown below to see some cute doggies... </p>
-		<Dropdown on:select={handleBreedSelect} />
-	
+		<!-- Dropdown -->
+		<Dropdown on:select={fetchBreeds} />
 
-	<!-- Dropdown -->
-
-	<!-- Displaying the selected breed -->
 	</div>
-
-	<div class="grid grid-cols-3 gap-4 mt-8">
-		{#each dogImages as image}
+	<!-- Displaying the selected breed -->
+	<div class="grid grid-cols-3 gap-4 mt-10">
+		{#each doggies as image}
 			<img src={image} alt="Dog image" class="w-full h-auto" />
 		{/each}
 	</div>
 
 </section>
 
-
-  
-
 <style>
+	img {
+		width: 100%; 
+		height: 400px;
+		object-fit: cover; 
+		border-radius: 8px; 
+		border: 2px solid orange;
+	}
 	
 </style>
