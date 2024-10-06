@@ -23,9 +23,6 @@
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">about</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/random') ? 'page' : undefined}>
-				<a href="/random">random</a>
-			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />

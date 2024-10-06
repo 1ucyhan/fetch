@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     
+    
     /**
      * @type {any[]}
      */
@@ -64,18 +65,24 @@
     $: filteredBreeds = breeds.filter(breed => breed.toLowerCase().includes(searchTerm.toLowerCase()));
 </script>
 
+<svelte:head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</svelte:head>
+
 <!-- Rendering the checkboxes for each breed -->
 <div class="checkbox-container">
   
     <h1 class="text-2xl font-bold text-fetchpurple mb-4"> The Big Dictionary of Doggies </h1>
-    <p class="text-center w-full pb-10 font-bold mt-0">When you're done selecting, scroll to below this dictionary to see your doggies!</p>
+    <p class="text-center w-full pb-10 font-bold mt-0 animate__animated animate__tada">When you're done selecting, <span class = "font-800">scroll down </span> to see your doggies!</p>
 
     <!-- Search bar for filtering breeds -->
     <input
         type="text"
         bind:value={searchTerm}
         placeholder="Search for a breed..."
-        class="flex text-black placeholder::text-black items-center mx-auto center mb-4 p-2 border border-fetchorange bg-fetchorange bg-opacity-50 rounded-lg w-full max-w-md"
+        class="flex  text-black placeholder:text-black  items-center mx-auto center mb-4 p-2 border border-fetchorange bg-fetchorange bg-opacity-50 rounded-lg w-full max-w-md"
     />
 
     <div class="checkboxes">
@@ -101,7 +108,7 @@
 <!-- Rendering the images of just the selected breeds -->
 <div>
     {#each Object.keys(breedImages) as breed}
-      <h2 class="text-fetchorange text-5xl pb-0 pt-10"> the {breed} </h2>
+      <h2 class="text-fetchorange text-5xl pb-0 pt-10"> ⤷ the {breed} 🐕 </h2>
       <div class="grid grid-cols-3 gap-4 mt-10">
         {#each breedImages[breed] as image}
           <img src={image} alt={breed} class="rounded-md border border-gray-300" />
@@ -146,11 +153,11 @@
     }
 
     img {
-        width: 80%; 
-        height: 200px;
+        width: 100%; 
+        height: 300px;
         object-fit: cover; 
         border-radius: 8px;
-        border: #faa819 solid 1px;
+        border: #62185c solid 3px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px 0px
     }
 

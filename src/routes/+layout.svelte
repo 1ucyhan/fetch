@@ -1,8 +1,11 @@
 <script>
 	import Header from '../components/Header.svelte';
-	import '../global.css'; 
 	import '../app.css';
 </script>
+
+<svelte:head>
+	<link rel="stylesheet" href="/global.css">
+</svelte:head>
 
 <div class="app">
 	<Header />

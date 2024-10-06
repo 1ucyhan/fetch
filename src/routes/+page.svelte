@@ -1,7 +1,6 @@
 <script>
 	import logo from '$lib/images/fetch-logo.svg';
 	import TypingEffect from '../components/TypingEffect.svelte';
-	import Dropdown from '../components/Dropdown.svelte';
 	import Dictionary from '../components/Dictionary.svelte';
 	import github from '$lib/images/github.svg';
 	import lucy from '$lib/images/lucy-logo.svg';
@@ -13,7 +12,7 @@
 	async function fetchImages(breed) {
 		const res = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
 		const data = await res.json();
-		doggies = data.message.slice(0, 10); 
+		doggies = data.message.slice(0, 6); 
 	}
 
 	// Fetching the image / the breed selection
@@ -65,28 +64,3 @@
 
 </section>
 
-
-<style>
-	.indi-container {
-        margin-top: 0;
-        position: relative;
-        width: 100vw;
-        min-height: 400px; 
-        background-color: #f3f0ec;
-        padding-bottom: 10%;
-        clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0% 90%);
-        overflow: hidden; 
-    }
-
-	.multi-container {
-        margin-top: 0;
-        position: relative;
-        width: 100vw;
-        min-height: 400px; 
-        background-color: #f3f0ec;
-        padding-bottom: 10%;
-		clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%); 
-        overflow: hidden; 
-    }
-
-</style>
