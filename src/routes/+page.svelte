@@ -45,13 +45,4 @@
 
 </section>
 
-<style>
-	img {
-		width: 100%; 
-		height: 400px;
-		object-fit: cover; 
-		border-radius: 8px; 
-		border: 2px solid orange;
-	}
-	
-</style>
+
