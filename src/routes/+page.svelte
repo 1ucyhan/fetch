@@ -1,7 +1,10 @@
 <script>
 	import logo from '$lib/images/fetch-logo.svg';
 	import TypingEffect from '../components/TypingEffect.svelte';
+	import Dropdown from '../components/Dropdown.svelte';
 	import Dictionary from '../components/Dictionary.svelte';
+	import github from '$lib/images/github.svg';
+	import lucy from '$lib/images/lucy-logo.svg';
 	let doggies = [];
 	
     const breeds = ["doggy", "Cockapoo", "Corgi", "Poodle", "Bulldog", "Sheepdog", "Newfoundland"];
@@ -45,20 +48,45 @@
 				me a <TypingEffect words={breeds} />. 🐶
 			</span>
 		</h1>
-	
 		
-		<p class = "pb-10  pt-8 text-color-black"> Click on the dropdown below to see some cute doggies... </p>
-		<!-- Dropdown -->
+		<p class = "pb-5 text-color-black"> choose one, or, if you're like a dog enthuasist like me, search up multiple! 🐶</p>
+		<div class = "flex flex-row gap-x-3">
+			<a href="https://github.com/sveltejs/kit">
+				<img src={github} alt="GitHub" width=30px/>
+			</a>
+			<a href="https://hanluxi.com/">
+				<img src={lucy} alt="lucy-logo" width=28px />
+			</a>
+		</div>
+		
 		<Dictionary on:select={fetchBreeds} />
-
-	</div>
-	<!-- Displaying the selected breed -->
-	<div class="grid grid-cols-3 gap-4 mt-10">
-		{#each doggies as image}
-			<img src={image} alt="Dog image" class="w-full h-auto" />
-		{/each}
+		
 	</div>
 
 </section>
 
 
+<style>
+	.indi-container {
+        margin-top: 0;
+        position: relative;
+        width: 100vw;
+        min-height: 400px; 
+        background-color: #f3f0ec;
+        padding-bottom: 10%;
+        clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0% 90%);
+        overflow: hidden; 
+    }
+
+	.multi-container {
+        margin-top: 0;
+        position: relative;
+        width: 100vw;
+        min-height: 400px; 
+        background-color: #f3f0ec;
+        padding-bottom: 10%;
+		clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%); 
+        overflow: hidden; 
+    }
+
+</style>
