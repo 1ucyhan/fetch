@@ -10,6 +10,7 @@
      */
     let selectedBreeds = [];
     let breedImages = {};
+    let alphaBreeds = {};
   
     // Fetch (haha get it) all the dog breeds on mount
     // Make sure this is on Mount
@@ -18,6 +19,7 @@
       const data = await res.json();
       console.log(Object.keys(data.message))
       breeds = Object.keys(data.message);
+      groupBreedsByLetter();
     });
   
     // Fetch and display images for the selected breeds
@@ -43,19 +45,37 @@
       }
       fetchBreedImages(); 
     }
+
+    // Want to oragnize the checkboxes in alphabetical order.
+    function groupBreedsByLetter() {
+        alphaBreeds = {};
+        breeds.forEach(breed => {
+            // Get the first letter of every breed. Sees if it matches
+            const firstLetter = breed.charAt(0).toUpperCase();
+            if (!alphaBreeds[firstLetter]) {
+                alphaBreeds[firstLetter] = [];
+        }
+        alphaBreeds[firstLetter].push(breed);
+        });
+  }
   </script>
   
   <!-- Rendering the checkboxes for each breed. -->
-  <div>
-    {#each breeds as breed}
-      <label>
-        <input 
-          type="checkbox" 
-          value={breed} 
-          on:change={(event) => handleCheckboxChange(event, breed)} 
-        />
-        {breed}
-      </label>
+  <div class="checkbox-container">
+    {#each Object.keys(alphaBreeds) as letter}
+      <div class="breed-group">
+        <h3>{letter}</h3>
+        {#each alphaBreeds[letter] as breed}
+          <label class="breed-checkbox">
+            <input
+              type="checkbox"
+              value={breed}
+              on:change={(event) => handleCheckboxChange(event, breed)}
+            />
+            {breed}
+          </label>
+        {/each}
+      </div>
     {/each}
   </div>
   
@@ -72,6 +92,23 @@
   </div>
   
   <style>
+
+    .checkbox-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* Three columns */
+        gap: 1rem;
+        max-width: 100%;
+    }
+
+    .breed-group {
+        margin-bottom: 1rem;
+    }
+
+    .breed-checkbox {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
 	img {
 		width: 80%; 
         height: 200px;
