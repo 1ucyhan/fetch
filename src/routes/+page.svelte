@@ -6,7 +6,7 @@
 	import lucy from '$lib/images/lucy-logo.svg';
 	let doggies = [];
 	
-    const breeds = ["doggy", "Cockapoo", "Corgi", "Poodle", "Bulldog", "Sheepdog", "Newfoundland"];
+    const breeds = ["doggy", "Cockapoo", "Corgi", "Poodle", "Bulldog", "Sheepdog", "Pug"];
 
 	// Fetching images.
 	async function fetchImages(breed) {
@@ -34,21 +34,20 @@
 
 <section>
 	<div class="flex flex-col justify-center items-center pt-[10%]">
-		<h1 class="text-6xl text-fetchpurple flex items-center">
-			<span class="text-fetchorange animate__animated animate__fadeIn flex items-center">
-				Fetch
-				<img 
-					src="{logo}" 
-					alt="Fetch Logo" 
-					class="inline-block w-20 h-20 ml-2 align-middle"
-				/>
+		<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-fetchpurple flex flex-col sm:flex-row items-center justify-center">
+			<span class="text-fetchorange animate__animated animate__fadeIn flex items-center justify-center">
+			  Fetch
+			  <img 
+				src="{logo}" 
+				alt="Fetch Logo" 
+				class="inline-block w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 ml-2 align-middle"
+			  />
 			</span>
-			<span class="ml-2">
-				me a <TypingEffect words={breeds} />. 🐶
+			<span class="ml-2 text-center sm:text-left">
+			  me a <TypingEffect words={breeds} />. 🐶
 			</span>
 		</h1>
-		
-		<p class = "pb-5 text-color-black"> choose one, or, if you're like a dog enthuasist like me, search up multiple! 🐶</p>
+		<p class = "pb-5 mx-auto lg:text-xl md:text-lg sm:text-sm text-color-black"> choose one, or, if you're like a dog enthuasist like me, search up multiple!</p>
 		<div class = "flex flex-row gap-x-3">
 			<a href="https://github.com/sveltejs/kit">
 				<img src={github} alt="GitHub" width=30px/>
