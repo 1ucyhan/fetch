@@ -112,20 +112,15 @@
 <style>
     .checkbox-container {
         margin-top: 0;
-    position: relative;
-    width: 100vw;
-    min-height: 600px; /* Allow height to grow based on content */
-    background-color: #f3f0ec;
-    padding-top: 20%;
-    padding-bottom: 10%; /* Adds space at the bottom for content */
-    clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%); /* The slanted effect */
-    overflow: hidden; /* Prevents content from overflowing */
-}
-
-
-    
-       
-    
+        position: relative;
+        width: 100vw;
+        min-height: 600px; 
+        background-color: #f3f0ec;
+        padding-top: 20%;
+        padding-bottom: 10%;
+        clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%); 
+        overflow: hidden; 
+    }
 
     .checkboxes {
         display: grid;
