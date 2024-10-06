@@ -1,7 +1,7 @@
 <script>
 	import logo from '$lib/images/fetch-logo.svg';
 	import TypingEffect from '../components/TypingEffect.svelte';
-	import Dropdown from '../components/Dropdown.svelte';
+	import Dictionary from '../components/Dictionary.svelte';
 	let doggies = [];
 	
     const breeds = ["doggy", "Cockapoo", "Corgi", "Poodle", "Bulldog", "Sheepdog", "Newfoundland"];
@@ -49,7 +49,7 @@
 		
 		<p class = "pb-10  pt-8 text-color-black"> Click on the dropdown below to see some cute doggies... </p>
 		<!-- Dropdown -->
-		<Dropdown on:select={fetchBreeds} />
+		<Dictionary on:select={fetchBreeds} />
 
 	</div>
 	<!-- Displaying the selected breed -->
