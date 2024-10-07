@@ -1,5 +1,7 @@
 <script>
+	// Using the header component.
 	import Header from '../components/Header.svelte';
+	// Importing all the .css properties.
 	import '../app.css';
 </script>
 
@@ -8,16 +10,15 @@
 </svelte:head>
 
 <div class="app">
+	<!-- Contains header and the rest of the page's content. -->
 	<Header />
-
 	<main>
-		<slot />
+		<slot/>
 	</main>
-
-	
 </div>
 
 <style>
+	/* Built in CSS from SvelteKit. */
 	.app {
 		display: flex;
 		flex-direction: column;
