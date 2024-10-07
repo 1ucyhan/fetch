@@ -44,11 +44,8 @@ git clone https://github.com/1ucyhan/fetch-coding-takehome.git
 cd fetch-coding-takehome
 
 # 2. install dependencies
-npm install
-# or if using yarn
-yarn install
+npm install OR yarn install
 
 # 3. run the project!
-npm start
-# or for yarn
-yarn start
+npm start OR yarn start
+
