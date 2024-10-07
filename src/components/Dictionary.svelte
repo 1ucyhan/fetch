@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   
-  let breeds = [];
-  let selectedBreeds = [];
-  let breedImages = {};
-  let alphaBreeds = {};
+  // var breeds: breeds[] = []
+  let breeds: string[] = [];
+  let selectedBreeds: string[] = [];
+  let breedImages: { [key: string]: string[] } = {};
+  let alphaBreeds: { [key: string]: string[] } = {};
   let searchTerm = '';
 
   // Fetch all the dog breeds on mount
@@ -26,20 +27,22 @@
   }
 
   // Handle changes in checkboxes
-  function handleCheckboxChange(event, breed) {
-    if (event.target.checked) {
+  function handleCheckboxChange(event: Event, breed: string) {
+    const target = event.target as HTMLInputElement | null; 
+    if (target && target.checked) {
       selectedBreeds.push(breed);
-    } else {
+    } else if (target) {
       selectedBreeds = selectedBreeds.filter(selectedBreed => selectedBreed !== breed);
     }
-    fetchBreedImages(); 
+    fetchBreedImages();
   }
+
 
   // Group breeds alphabetically
   function groupBreedsByLetter() {
       alphaBreeds = {};
       breeds.forEach(breed => {
-          const firstLetter = breed.charAt(0).toUpperCase();
+          let firstLetter: string = breed.charAt(0).toUpperCase();
           if (!alphaBreeds[firstLetter]) {
               alphaBreeds[firstLetter] = [];
           }
@@ -144,7 +147,6 @@
     height: 300px;
     object-fit: cover; 
     border-radius: 8px;
-    border: #62185c solid 3px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px 0px;
   }
 
@@ -156,7 +158,7 @@
 
   @media (min-width: 768px) {
       img {
-        height: 300px; 
+          height: 300px; 
       }
   }
 

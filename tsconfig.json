@@ -1,14 +1,20 @@
 {
-	"extends": "@tsconfig/svelte/tsconfig.json",
+	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true,
+		"paths": {
+			"$lib/*": ["./src/lib/*"],
+			"$components/*": ["./src/components/*"]
+		},
 		"sourceMap": true,
 		"strict": true,
 		"types": ["svelte"],
 		"moduleResolution": "node"
-	}
+	},
+	"include": ["src/**/*.ts", "src/**/*.svelte"],
+  	"exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }
