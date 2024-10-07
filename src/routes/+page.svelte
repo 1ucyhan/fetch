@@ -62,7 +62,7 @@
 		<p class = "pb-5 mx-auto lg:text-xl md:text-lg sm:text-sm text-color-black"> choose one, or, if you're like a dog enthuasist like me, search up multiple!</p>
 		<!-- Added links again here for easier access. -->
 		<div class = "flex flex-row gap-x-3">
-			<a href="https://github.com/sveltejs/kit">
+			<a href="https://github.com/1ucyhan/fetch">
 				<img src={github} alt="GitHub" width=30px/>
 			</a>
 			<a href="https://hanluxi.com/">

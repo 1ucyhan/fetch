@@ -34,7 +34,7 @@
 	<!-- Adding Github Repo link and website in the corner (because why not). -->
 	<div class="corner">
 		<div class = "flex flex-row gap-y-1">
-			<a href="https://github.com/sveltejs/kit">
+			<a href="https://github.com/1ucyhan/fetch">
 				<img src={github} alt="GitHub" />
 			</a>
 			<a href="https://hanluxi.com/">
