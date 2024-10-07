@@ -1,38 +1,46 @@
-# create-svelte
+# fetch me a doggy 🐶
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## table of contents
+1. [intro](#introduction)
+2. [features](#features)
+3. [tech stack](#tech-stack)
+4. [get started!](#getting-started)
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+## intro
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+As specified by the **Fetch Coding Takehome** description, I've created an app to allow users to search and select their favorite dog breeds, fetch their images from an external API, and scroll through a dynamic page! 
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## features
 
-## Developing
+For this project, I included:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- **Typing Effect!:** i <3 typing animations
+- **Breed Dictionary:** users can search for specific dog breeds and select them using checkboxes!
+- **Image Fetching:** once a breed is selected, the app fetches up to six images of the selected breed and displays them on the page
 
-```bash
-npm run dev
+## tech stack
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+- **Frontend:** [Svelte](https://svelte.dev/) (TypeScript)
+- **Styling:** Tailwind CSS (utility-first CSS framework) and some vanilla CSS whereever I saw fit!
+- **External API:** [Dog CEO's Dog API](https://dog.ceo/dog-api/)
+- **JavaScript/TypeScript for Logic**
 
-## Building
+## get started!!!
 
-To create a production version of your app:
+To run this project locally, follow these steps:
 
-```bash
-npm run build
-```
+### prereqs
 
-You can preview the production build with `npm run preview`.
+Make sure you have the following installed:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- [Node.js](https://nodejs.org/) (v16 or later)
+- [npm](https://www.npmjs.com/)
+
+### installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/1ucyhan/fetch-coding-takehome.git
+   cd fetch-coding-takehome 
