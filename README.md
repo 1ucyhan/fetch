@@ -23,12 +23,12 @@ For this project, I included:
 
 - **Frontend:** [Svelte](https://svelte.dev/) (TypeScript)
 - **Styling:** Tailwind CSS (utility-first CSS framework) and some vanilla CSS whereever I saw fit!
-- **External API:** [Dog CEO's Dog API](https://dog.ceo/dog-api/)
-- **JavaScript/TypeScript for Logic**
+- **API:** [Dog CEO's Dog API](https://dog.ceo/dog-api/)
+- **JavaScript/TypeScript**
 
 ## get started!!!
 
-To run this project locally, follow these steps:
+Note that you can access this project through Vercel! Hhowever, to run this project locally, follow these steps:
 
 ### prereqs
 
@@ -39,8 +39,16 @@ Make sure you have the following installed:
 
 ### installation
 
-1. Clone the repository:
+# 1. clone the repository
+git clone https://github.com/1ucyhan/fetch-coding-takehome.git
+cd fetch-coding-takehome
 
-   ```bash
-   git clone https://github.com/1ucyhan/fetch-coding-takehome.git
-   cd fetch-coding-takehome 
+# 2. install dependencies
+npm install
+# or if using yarn
+yarn install
+
+# 3. run the project!
+npm start
+# or for yarn
+yarn start
