@@ -11,6 +11,8 @@
   let alphaBreeds: { [key: string]: string[] } = {};
   // Initializing the search input.
   let searchTerm = '';
+  // Boolean for showing when the down button appears.
+  let showDownButton = false;
 
   /* DICTIONARY */
   // Fetching all the dog breeds from the DogAPI on mount.
@@ -42,6 +44,8 @@
     } else if (target) {
       selectedBreeds = selectedBreeds.filter(selectedBreed => selectedBreed !== breed);
     }
+
+    showDownButton = selectedBreeds.length > 0;
     fetchBreedImages();
   }
 
@@ -56,6 +60,14 @@
         // Adding that breed if it matches the first letter.
         alphaBreeds[firstLetter].push(breed);
       });
+  }
+
+  // Fucntion to scroll to the images page.
+  function scrollToImages() {
+    const imagesSection = document.getElementById('dog-images');
+    if (imagesSection) {
+      imagesSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 </script>
 
@@ -99,8 +111,15 @@
   </div>
 </div>
 
-<!-- Rendering the images of selected breeds. -->
-<div>
+<!-- Display the down button if the state is true! -->
+{#if showDownButton}
+  <button on:click={scrollToImages} class="scroll-btn">
+    ↓ See my doggies!
+  </button>
+{/if}
+
+<!-- Dog images section -->
+<div id="dog-images">
   {#each Object.keys(breedImages) as breed}
     <h2 class="text-fetchorange text-3xl sm:text-5xl pb-0 pt-10">⤷ the {breed} 🐕</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-10">
@@ -113,6 +132,27 @@
 </div>
 
 <style>
+  /* Styling the scroll button */
+  .scroll-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #62185c;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    color: #F9F7F2;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .scroll-btn:hover {
+    background-color: #faa819;
+    color: #62185c;
+  }
+
   /* Customizing the look of the section that contains all the checkbox. Included clip-path polygon. */
   .checkbox-container {
     margin-top: 0;
