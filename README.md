@@ -7,6 +7,21 @@ get your dogs at a click of a button. and some typing.
 
 
 ## tech stack
+
+### Built With
+
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
+* [![Svelte][Svelte.com]][Svelte-url]
+* [![Tailwind][React.js]][React-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Angular][Angular.io]][Angular-url]
+* [![Svelte][Svelte.dev]][Svelte-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![TypeScript][TypeScript.com]][TypeScript-url]
+* [![Javascript][Javascript.com]][Javascript-url]
+
+  
 - **frontend:** [Svelte](https://svelte.dev/) (TypeScript), Tailwind CSS (utility-first CSS framework), and some vanilla CSS whereever I saw fit!
 - **API:** [Dog CEO's Dog API](https://dog.ceo/dog-api/)
 - **JavaScript/TypeScript**
@@ -23,13 +38,19 @@ Make sure you have the following installed:
 
 ### installation
 
-#### 1. clone the repository
-git clone https://github.com/1ucyhan/fetch-coding-takehome.git
-cd fetch-coding-takehome
+1. clone the repository
+```sh
+   git clone https://github.com/1ucyhan/fetch-coding-takehome.git
+   cd fetch-coding-takehome
+```
 
-##### 2. install dependencies
-npm install OR yarn install
+2. install dependencies
+```sh
+   npm install
+```
 
 #### 3. run the project!
-npm start OR yarn start
+```sh
+   npm run dev
+```
 
