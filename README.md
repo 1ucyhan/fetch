@@ -40,8 +40,8 @@ Make sure you have the following installed:
 
 1. clone the repository
 ```sh
-   git clone https://github.com/1ucyhan/fetch-coding-takehome.git
-   cd fetch-coding-takehome
+   git clone https://github.com/1ucyhan/fetch.git
+   cd fetch
 ```
 
 2. install dependencies
