@@ -7,12 +7,13 @@
 		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true,
 		"paths": {
-			"$lib/*": ["./src/lib/*"],
-			"$components/*": ["./src/components/*"]
+			"$app/*": ["./.svelte-kit/types/src/app/*"],
+			"$components/*": ["./src/components/*"],
+			"$lib/*": ["./src/lib/*"]
 		},
 		"sourceMap": true,
 		"strict": true,
-		"types": ["svelte"],
+		"types": ["svelte", "@sveltejs/kit"],
 		"moduleResolution": "node"
 	},
 	"include": ["src/**/*.ts", "src/**/*.svelte"],

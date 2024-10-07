@@ -1,17 +1,20 @@
 <script lang="ts">
+	// Importing feature from Svelte.
 	import { page } from '$app/stores';
+	// Importing assets in lib folder.
 	import logo from '$lib/images/fetch-logo.svg';
 	import github from '$lib/images/github.svg';
 	import lucy from '$lib/images/lucy-logo.svg';
 </script>
 
-<header>
+<header class = "flex justify-between">
+	<!-- Adding Fetch logo in the corner (because why not). -->
 	<div class="corner">
 		<a href="https://fetch.com/">
 			<img src={logo} alt="Fetch Logo" />
 		</a>
 	</div>
-
+	<!-- Navigation bar. -->
 	<nav>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
@@ -28,7 +31,7 @@
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
 		</svg>
 	</nav>
-
+	<!-- Adding Github Repo link and website in the corner (because why not). -->
 	<div class="corner">
 		<div class = "flex flex-row gap-y-1">
 			<a href="https://github.com/sveltejs/kit">
@@ -42,17 +45,13 @@
 </header>
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
-
+	/* Customizing the corner sizes. */
 	.corner {
 		width: 3em;
 		height: 3em;
-		
 	}
 
+	/* Customizing the corner links. */
 	.corner a {
 		display: flex;
 		align-items: center;
@@ -61,18 +60,21 @@
 		height: 100%;
 	}
 
+	/* Customizing the corner images. */
 	.corner img {
 		width: 2em;
 		height: 2em;
 		object-fit: contain;
 	}
 
+	/* Nav bar customization */
 	nav {
 		display: flex;
 		justify-content: center;
 		--background: rgba(255, 255, 255, 0.7);
 	}
 
+	/* SVG customization. */
 	svg {
 		width: 2em;
 		height: 3em;
