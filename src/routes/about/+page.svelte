@@ -1,26 +1,24 @@
 <svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
+  <title>About</title>
+  <meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="text-column">
-	<h1>About this app</h1>
-
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
+<div class="text-column g-10">
+  <h1>About this app</h1>
+  <p class="text-xl text-center font-bold">
+    🐶 A take-home coding assessment for 
+    <span class="font-black text-fetchorange">Fetch.</span>
+  </p>
+  <p>
+    Used Dog API to view an image gallery of your favorite dog breeds. You can select one or more if you're a dog lover like me!
+  </p>
+  <p>
+    Built with Svelte, Tailwind CSS (and some vanilla CSS where needed), and TypeScript. By far one of the most fun coding take-homes I've done. One of my new favorite dogs is now a Cockapoo!
+  </p>
 </div>
+
+<style>
+	p {
+		margin-bottom: 20px;
+	}
+</style>
