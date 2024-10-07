@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
     import { createEventDispatcher, onMount } from 'svelte';
-    let breeds = [];
+    let breeds: string[] = [];
     let selectedBreed = '';
   
     // Create a dispatch.
@@ -16,7 +16,7 @@
     });
 
     // Selecting the breed of the dog
-    function selectBreed(event) {
+    function selectBreed(event: Event) {
       selectedBreed = event.target.value;
       dispatch('select', selectedBreed);
     }
