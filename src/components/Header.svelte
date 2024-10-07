@@ -81,10 +81,12 @@
 		display: block;
 	}
 
+	/* Custom polygon shape. */
 	path {
 		fill: var(--background);
 	}
 
+	/* Properties to group each page link. */
 	ul {
 		position: relative;
 		padding: 0;
@@ -98,11 +100,13 @@
 		background-size: contain;
 	}
 
+	/* Property for each value in the navigation bar (HOME, ABOUT) */
 	li {
 		position: relative;
 		height: 100%;
 	}
 
+	/* CSS for the triangle on the top of the current navigation page.  */
 	li[aria-current='page']::before {
 		--size: 6px;
 		content: '';
@@ -115,6 +119,7 @@
 		border-top: var(--size) solid var(--color-theme-1);
 	}
 
+	/* Customizing the links in the navigation bar (HOME, ABOUT). */
 	nav a {
 		display: flex;
 		height: 100%;
@@ -128,7 +133,7 @@
 		text-decoration: none;
 		transition: color 0.2s linear;
 	}
-
+	/* Hovering property. */
 	a:hover {
 		color: var(--color-theme-1);
 	}
