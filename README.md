@@ -1,6 +1,7 @@
 # FETCH ME A DOGGY!!! 🐶
-<img width="1506" alt="Screenshot 2024-10-07 at 11 03 55 PM" src="https://github.com/user-attachments/assets/b370a564-c151-4798-8715-cbb026e2fe1a">
 get your dogs at a click of a button. and some typing. 
+<img width="1506" alt="Screenshot 2024-10-07 at 11 03 55 PM" src="https://github.com/user-attachments/assets/b370a564-c151-4798-8715-cbb026e2fe1a">
+
 
 ## 🐾 tech stack
 ![Svelte](https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00)
@@ -15,12 +16,6 @@ get your dogs at a click of a button. and some typing.
 ## 🐾 get started!!!
 Note that you can access this project through Vercel! However, to run this project locally, follow these steps:
 
-### 🐾 prereqs
-
-Make sure you have the following installed:
-
-- [Node.js](https://nodejs.org/) (v16 or later)
-- [npm](https://www.npmjs.com/)
 
 ### 🐾 installation
 
