@@ -35,7 +35,7 @@ Make sure you have the following installed:
    npm install
 ```
 
-#### 3. run the project!
+3. run the project!
 ```sh
    npm run dev
 ```
