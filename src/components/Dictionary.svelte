@@ -19,6 +19,7 @@
   onMount(async () => {
     const res = await fetch('https://dog.ceo/api/breeds/list/all');
     const data = await res.json();
+    console.log("fetching all dog breeds ", data)
     breeds = Object.keys(data.message);
     // Grouping them alphabetically.
     groupBreedsByLetter();
@@ -30,9 +31,16 @@
     for (const breed of selectedBreeds) {
       const res = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
       const data = await res.json();
+      console.log("fetching all dog breed images ", data)
       // Only displaying the first 6 breed images. Don't want to overcrowd.
       breedImages[breed] = data.message.slice(0, 6); 
     }
+  }
+
+  // Helper function for filtering through the breeds with a specified search term.
+  // By passing in the search term, Svelte will know that it would have to update.
+  function filterBreeds(alphaBreeds: string[], searchTerm: string) {
+    return alphaBreeds.filter(breed => breed.toLowerCase().includes(searchTerm.toLowerCase()))
   }
 
   // Handling the changes in the checkboxes.
@@ -62,7 +70,7 @@
       });
   }
 
-  // Fucntion to scroll to the images page.
+  // Function to scroll to the images page.
   function scrollToImages() {
     const imagesSection = document.getElementById('dog-images');
     if (imagesSection) {
@@ -89,13 +97,16 @@
       placeholder="Search for a breed..."
       class="flex text-black placeholder:text-black items-center mx-auto mb-4 p-2 border border-fetchorange bg-fetchorange bg-opacity-50 rounded-lg w-full max-w-md"
   />
+  <!-- tailwind css intelli sense? -->
   <!-- Displaying all the checkboxes for each breed. -->
   <div class="checkboxes">
     {#each Object.keys(alphaBreeds) as letter}
-      <div class="breed-group mb-1">
-        <!-- Displaying LETTER, BREEDS. -->
-        <h3 class="text-xl text-fetchpurple">{letter}</h3>
-          {#each alphaBreeds[letter].filter(breed => breed.toLowerCase().includes(searchTerm.toLowerCase())) as breed}
+      {#if filterBreeds(alphaBreeds[letter], searchTerm).length > 0}
+        <div class="breed-group mb-1">
+          <!-- if there are no checkboxes present for that letter, then we remove that letter -->
+          <!-- Displaying LETTER, BREEDS. -->
+          <h3 class="text-xl text-fetchpurple">{letter}</h3>
+          {#each filterBreeds(alphaBreeds[letter], searchTerm) as breed}
             <label class="breed-checkbox">
                 <input
                     type="checkbox"
@@ -106,7 +117,8 @@
                 {breed}
             </label>
           {/each}
-      </div>
+        </div>
+      {/if }
     {/each}
   </div>
 </div>
